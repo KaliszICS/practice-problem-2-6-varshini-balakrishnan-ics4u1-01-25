@@ -11,7 +11,7 @@ public class PracticeProblem {
 		for (int i = 0; i < nums.length; i++) {
 			copy[i] = nums[i];
 		}
-		return nums;
+		return copy;
 	}
 	public static int[] bubbleSort(double [] nums) {
 		double[] arr = copyArray(nums);
