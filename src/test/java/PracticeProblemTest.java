@@ -1,7 +1,6 @@
 import java.lang.reflect.Method;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
-import java.io.*;
 public class PracticeProblemTest {
 @Test
 @DisplayName("")
@@ -34,8 +33,7 @@ void insertionSortTest2() {
         Method method = testClass.getDeclaredMethod("insertionSort", cArg);
   // Enter code here
   double arr[] = {155.2, 155.1, 1, 5, 3, 2, 7};
-  double arr2[] = {1, 2, 3, 5, 7, 155.1, 155.2};
-    int[] result = (int[])method.invoke(null, arr);
+  int[] result = (int[])method.invoke(null, arr);
   int[] expected = new int[]{26,14};
   assertArrayEquals(expected, result);
 }
@@ -79,8 +77,7 @@ void selectionSortTest2() {
         Method method = testClass.getDeclaredMethod("selectionSort", cArg);
   // Enter code here
   double arr[] = {155.2, 155.1, 1, 5, 3, 2, 7, 8};
-  double arr2[] = {1, 2, 3, 5, 7, 8, 155.1, 155.2};
-    int[] result = (int[])method.invoke(null, arr);
+  int[] result = (int[])method.invoke(null, arr);
   int[] expected = new int[]{32, 28};
   assertArrayEquals(expected, result);
 }
@@ -102,8 +99,7 @@ void bubbleSortTest2() {
         Method method = testClass.getDeclaredMethod("bubbleSort", cArg);
   // Enter code here
   double arr[] = {155.2, 155.1, 1, 5, 3, 2, 7, 235};
-  double arr2[] = {1, 2, 3, 5, 7, 155.1, 155.2, 235};
-    int[] result = (int[])method.invoke(null, arr);
+  int[] result = (int[])method.invoke(null, arr);
   int[] expected = new int[]{42,25};
   assertArrayEquals(expected, result);
 }
