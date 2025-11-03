@@ -6,15 +6,15 @@ public class PracticeProblem {
 		System.out.println("Least iterations: " + leastIterations(nums));
 
 	}
-	public static double[] coppyArray(double[] nums) {
+	public static double[] copyArray(double[] nums) {
 		double[] copy = new double[nums.length];
 		for (int i = 0; i < nums.length; i++) {
 			copy[i] = nums[i];
 		}
-		return copy;
+		return nums;
 	}
 	public static int[] bubbleSort(double [] nums) {
-		double[] arr = coppyArray(nums);
+		double[] arr = copyArray(nums);
 		int swaps = 0;
 		int steps = 0;
 		boolean swapped;
@@ -36,7 +36,7 @@ public class PracticeProblem {
 		return new int[] {swaps, steps};
 	}
 	public static int[] selectionSort(double[] nums) {
-		double[] arr = coppyArray(nums);
+		double[] arr = copyArray(nums);
 		int swaps = 0;
 		int steps = 0;
 		for (int j = 0; j < arr.length - 1; j++) {
@@ -57,7 +57,7 @@ public class PracticeProblem {
 		return new int[]{swaps, steps};
 	}
 	public static int[] insertionSort(double[] nums) {
-		double[] arr = coppyArray(nums);
+		double[] arr = copyArray(nums);
 		int swaps = 0;
 		int steps = 0;
 		for (int i = 1; i < arr.length; i++) {
