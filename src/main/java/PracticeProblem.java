@@ -32,7 +32,7 @@ public class PracticeProblem {
 			}
 			if (!swapped) break;
 		}
-		return new int[] {swaps, steps};
+		return new int[] {steps, swaps};
 	}
 	public static int[] selectionSort(double[] nums) {
 		int swaps = 0;
@@ -52,14 +52,13 @@ public class PracticeProblem {
 				swaps += 3;
 			}
 		}
-		return new int[]{swaps, steps};
+		return new int[]{steps, swaps};
 	}
 	public static int[] insertionSort(double[] nums) {
 		int swaps = 0;
 		int steps = 0;
 		for (int i = 1; i < nums.length; i++) {
 			double key = nums[i];
-			swaps += 1;
 			int index = i - 1;
 			while(index >= 0 && nums[index] > key) {
 				steps++;
@@ -73,15 +72,15 @@ public class PracticeProblem {
 			nums[index + 1] = key;
 			swaps += 1;
 		}
-		return new int[]{swaps, steps};
+		return new int[]{steps, swaps};
 	}
 	public static String leastSwaps(double[] nums) {
 		int[] b = bubbleSort(copyArray(nums));
 		int[] s = selectionSort(copyArray(nums));
 		int[] i = insertionSort(copyArray(nums));
-		int bubble = b[0];
-		int selection = s[0];
-		int insertion = i[0];
+		int bubble = b[1];
+		int selection = s[1];
+		int insertion = i[1];
 		int min = Math.min(bubble, Math.min(selection, insertion));
 
 		if (bubble == min) return "Bubble";
@@ -93,9 +92,9 @@ public class PracticeProblem {
 		int[] s = selectionSort(copyArray(nums));
 		int[] i = insertionSort(copyArray(nums));
 
-		int bubble = b[1];
-		int selection = s[1];
-		int insertion = i[1];
+		int bubble = b[0];
+		int selection = s[0];
+		int insertion = i[0];
 
 		int min = Math.min(bubble, Math.min(selection, insertion));
 		if (bubble == min) return "Bubble";
