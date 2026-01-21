@@ -22,7 +22,7 @@ public class PracticeProblem {
 			swapped = false;
 			for (int i = 1; i < nums.length - j; i++) {
 				steps++;
-				if( nums[i -1] < nums[i]) {
+				if( nums[i -1] > nums[i]) {
 					double temp = nums[i-1];
 					nums[i - 1] = nums[i];
 					nums[i] = temp;
@@ -38,17 +38,17 @@ public class PracticeProblem {
 		int swaps = 0;
 		int steps = 0;
 		for (int j = 0; j < nums.length - 1; j++) {
-			int largest = j;
+			int smallest = j;
 			for (int i = j + 1; i < nums.length; i ++) {
 				steps++;
-				if(nums[i] > nums[largest]) {
-					largest = i;
+				if(nums[i] < nums[smallest]) {
+					smallest = i;
 				}
 			}
-			if (largest != j) {
+			if (smallest != j) {
 				double temp = nums[j];
-				nums[j] = nums[largest];
-				nums[largest] = temp;
+				nums[j] = nums[smallest];
+				nums[smallest] = temp;
 				swaps += 3;
 			}
 		}
@@ -59,9 +59,9 @@ public class PracticeProblem {
 		int steps = 0;
 		for (int i = 1; i < nums.length; i++) {
 			double key = nums[i];
+			swaps += 1;
 			int index = i - 1;
-
-			while(index >= 0 && nums[index] < key) {
+			while(index >= 0 && nums[index] > key) {
 				steps++;
 				nums[index + 1] = nums[index];
 				swaps += 1;
