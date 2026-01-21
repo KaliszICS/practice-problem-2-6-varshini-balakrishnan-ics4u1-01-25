@@ -31,15 +31,16 @@ public class PracticeProblem {
 				}
 			}
 			if (!swapped) break;
-		}
-		return new int[] {steps, swaps};
-	}
-	public static int[] selectionSort(double[] nums) {
-		int swaps = 0;
-		int steps = 0;
-		for (int j = 0; j < nums.length - 1; j++) {
-			int smallest = j;
-			for (int i = j + 1; i < nums.length; i ++) {
+						while (index >= 0) {
+							steps++;
+							if (nums[index] > key) {
+								nums[index + 1] = nums[index];
+								swaps += 1;
+								index--;
+							} else {
+								break;
+							}
+						}
 				steps++;
 				if(nums[i] < nums[smallest]) {
 					smallest = i;
