@@ -39,10 +39,12 @@ public class PracticeProblem {
 		int steps = 0;
 		for (int j = 0; j < nums.length - 1; j++) {
 			int smallest = j;
+			swaps += 1; 
 			for (int i = j + 1; i < nums.length; i ++) {
 				steps++;
 				if(nums[i] < nums[smallest]) {
 					smallest = i;
+					swaps += 1; // Count smallest = i assignment
 				}
 			}
 			if (smallest != j) {
@@ -59,7 +61,6 @@ public class PracticeProblem {
 		int steps = 0;
 		for (int i = 1; i < nums.length; i++) {
 			double key = nums[i];
-			swaps += 1; // Count key assignment
 			int index = i - 1;
 
 			while(index >= 0 && nums[index] > key) {
@@ -72,7 +73,7 @@ public class PracticeProblem {
 				steps++;
 			}
 			nums[index + 1] = key;
-			swaps += 1;
+			swaps += 1; // Always count the final placement
 		}
 		return new int[]{swaps, steps};
 	}
