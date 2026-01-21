@@ -7,8 +7,8 @@ public class PracticeProblem {
 	}
 	
 	public static double[] copyArray(double[] nums) {
-		double[] copy = new double[nums. length];
-		for (int i = 0; i < nums. length; i++) {
+		double[] copy = new double[nums.length];
+		for (int i = 0; i < nums.length; i++) {
 			copy[i] = nums[i];
 		}
 		return copy;
@@ -16,33 +16,33 @@ public class PracticeProblem {
 	
 	public static int[] bubbleSort(double[] nums) {
 		int swaps = 0;
-		int steps = 0;
+		int comparisons = 0;
 		boolean swapped;
 
 		for (int j = 0; j < nums. length - 1; j++) {
 			swapped = false;
 			for (int i = 1; i < nums.length - j; i++) {
-				steps++;
+				comparisons++;
 				if (nums[i - 1] > nums[i]) {
 					double temp = nums[i - 1];
 					nums[i - 1] = nums[i];
 					nums[i] = temp;
-					swaps += 3;
+					swaps++;
 					swapped = true;
 				}
 			}
 			if (!swapped) break;
 		}
-		return new int[]{steps, swaps};
+		return new int[]{comparisons, swaps};
 	}
 	
 	public static int[] selectionSort(double[] nums) {
 		int swaps = 0;
-		int steps = 0;
-		for (int j = 0; j < nums.length - 1; j++) {
+		int comparisons = 0;
+		for (int j = 0; j < nums. length - 1; j++) {
 			int smallest = j;
 			for (int i = j + 1; i < nums.length; i++) {
-				steps++;
+				comparisons++;
 				if (nums[i] < nums[smallest]) {
 					smallest = i;
 				}
@@ -51,31 +51,30 @@ public class PracticeProblem {
 				double temp = nums[j];
 				nums[j] = nums[smallest];
 				nums[smallest] = temp;
-				swaps += 3;
+				swaps++;
 			}
 		}
-		return new int[]{steps, swaps};
+		return new int[]{comparisons, swaps};
 	}
 	
 	public static int[] insertionSort(double[] nums) {
 		int swaps = 0;
-		int steps = 0;
-		for (int i = 1; i < nums.length; i++) {
+		int comparisons = 0;
+		for (int i = 1; i < nums. length; i++) {
 			double key = nums[i];
 			int index = i - 1;
 			while (index >= 0 && nums[index] > key) {
-				steps++;
+				comparisons++;
 				nums[index + 1] = nums[index];
-				swaps += 1;
+				swaps++;
 				index--;
 			}
 			if (index >= 0) {
-				steps++;
+				comparisons++;
 			}
 			nums[index + 1] = key;
-			swaps += 1;
 		}
-		return new int[]{swaps, steps};
+		return new int[]{comparisons, swaps};
 	}
 	
 	public static String leastSwaps(double[] nums) {
