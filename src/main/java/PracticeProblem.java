@@ -19,7 +19,7 @@ public class PracticeProblem {
 		int comparisons = 0;
 		boolean swapped;
 
-		for (int j = 0; j < nums. length - 1; j++) {
+		for (int j = 0; j < nums.length - 1; j++) {
 			swapped = false;
 			for (int i = 1; i < nums.length - j; i++) {
 				comparisons++;
@@ -31,7 +31,7 @@ public class PracticeProblem {
 					swapped = true;
 				}
 			}
-			if (!swapped) break;
+			if (! swapped) break;
 		}
 		return new int[]{comparisons, swaps};
 	}
@@ -39,9 +39,9 @@ public class PracticeProblem {
 	public static int[] selectionSort(double[] nums) {
 		int swaps = 0;
 		int comparisons = 0;
-		for (int j = 0; j < nums. length - 1; j++) {
+		for (int j = 0; j < nums.length - 1; j++) {
 			int smallest = j;
-			for (int i = j + 1; i < nums.length; i++) {
+			for (int i = j + 1; i < nums. length; i++) {
 				comparisons++;
 				if (nums[i] < nums[smallest]) {
 					smallest = i;
@@ -60,7 +60,7 @@ public class PracticeProblem {
 	public static int[] insertionSort(double[] nums) {
 		int swaps = 0;
 		int comparisons = 0;
-		for (int i = 1; i < nums. length; i++) {
+		for (int i = 1; i < nums.length; i++) {
 			double key = nums[i];
 			int index = i - 1;
 			while (index >= 0 && nums[index] > key) {
@@ -84,11 +84,11 @@ public class PracticeProblem {
 		int bubble = b[1];
 		int selection = s[1];
 		int insertion = i[1];
-		int min = Math.min(bubble, Math.min(selection, insertion));
+		int min = Math. min(bubble, Math.min(selection, insertion));
 
-		if (bubble == min) return "Bubble";
 		if (insertion == min) return "Insertion";
-		return "Selection";
+		if (selection == min) return "Selection";
+		return "Bubble";
 	}
 	
 	public static String leastIterations(double[] nums) {
@@ -101,8 +101,8 @@ public class PracticeProblem {
 		int insertion = i[0];
 
 		int min = Math.min(bubble, Math.min(selection, insertion));
-		if (bubble == min) return "Bubble";
 		if (insertion == min) return "Insertion";
+		if (bubble == min) return "Bubble";
 		return "Selection";
 	}
 }
