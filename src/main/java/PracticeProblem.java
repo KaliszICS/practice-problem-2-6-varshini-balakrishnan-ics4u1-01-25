@@ -59,6 +59,7 @@ public class PracticeProblem {
 		int steps = 0;
 		for (int i = 1; i < nums.length; i++) {
 			double key = nums[i];
+			swaps += 1; // Count key assignment
 			int index = i - 1;
 
 			while(index >= 0 && nums[index] > key) {
@@ -71,7 +72,7 @@ public class PracticeProblem {
 				steps++;
 			}
 			nums[index + 1] = key;
-			if(index + 1 != i) swaps += 1;
+			swaps += 1;
 		}
 		return new int[]{swaps, steps};
 	}
@@ -98,8 +99,8 @@ public class PracticeProblem {
 		int insertion = i[1];
 
 		int min = Math.min(bubble, Math.min(selection, insertion));
-		if (insertion == min) return "Insertion";
 		if (bubble == min) return "Bubble";
+		if (insertion == min) return "Insertion";
 		return "Selection";
 	}
 }
