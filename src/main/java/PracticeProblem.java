@@ -41,7 +41,7 @@ public class PracticeProblem {
 		int comparisons = 0;
 		for (int j = 0; j < nums.length - 1; j++) {
 			int smallest = j;
-			for (int i = j + 1; i < nums. length; i++) {
+			for (int i = j + 1; i < nums.length; i++) {
 				comparisons++;
 				if (nums[i] < nums[smallest]) {
 					smallest = i;
@@ -84,11 +84,12 @@ public class PracticeProblem {
 		int bubble = b[1];
 		int selection = s[1];
 		int insertion = i[1];
-		int min = Math. min(bubble, Math.min(selection, insertion));
+		int min = Math.min(bubble, Math.min(selection, insertion));
 
+		// Priority order when tied: Insertion > Bubble > Selection
 		if (insertion == min) return "Insertion";
-		if (selection == min) return "Selection";
-		return "Bubble";
+		if (bubble == min) return "Bubble";
+		return "Selection";
 	}
 	
 	public static String leastIterations(double[] nums) {
@@ -101,6 +102,8 @@ public class PracticeProblem {
 		int insertion = i[0];
 
 		int min = Math.min(bubble, Math.min(selection, insertion));
+		
+		// Priority order when tied:  Insertion > Bubble > Selection
 		if (insertion == min) return "Insertion";
 		if (bubble == min) return "Bubble";
 		return "Selection";
