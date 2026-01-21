@@ -38,17 +38,17 @@ public class PracticeProblem {
 		int swaps = 0;
 		int steps = 0;
 		for (int j = 0; j < nums.length - 1; j++) {
-			int largest = j;
+			int smallest = j;
 			for (int i = j + 1; i < nums.length; i ++) {
 				steps++;
-				if(nums[i] > nums[largest]) {
-					largest = i;
+				if(nums[i] < nums[smallest]) {
+					smallest = i;
 				}
 			}
-			if (largest != j) {
+			if (smallest != j) {
 				double temp = nums[j];
-				nums[j] = nums[largest];
-				nums[largest] = temp;
+				nums[j] = nums[smallest];
+				nums[smallest] = temp;
 				swaps += 3;
 			}
 		}
