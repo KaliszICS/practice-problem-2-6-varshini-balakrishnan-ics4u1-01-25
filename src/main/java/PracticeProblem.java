@@ -22,7 +22,7 @@ public class PracticeProblem {
 			swapped = false;
 			for (int i = 1; i < nums.length - j; i++) {
 				steps++;
-				if( nums[i -1] > nums[i]) {
+				if( nums[i -1] < nums[i]) {
 					double temp = nums[i-1];
 					nums[i - 1] = nums[i];
 					nums[i] = temp;
@@ -38,19 +38,17 @@ public class PracticeProblem {
 		int swaps = 0;
 		int steps = 0;
 		for (int j = 0; j < nums.length - 1; j++) {
-			int smallest = j;
-			swaps += 1; 
+			int largest = j;
 			for (int i = j + 1; i < nums.length; i ++) {
 				steps++;
-				if(nums[i] < nums[smallest]) {
-					smallest = i;
-					swaps += 1; // Count smallest = i assignment
+				if(nums[i] > nums[largest]) {
+					largest = i;
 				}
 			}
-			if (smallest != j) {
+			if (largest != j) {
 				double temp = nums[j];
-				nums[j] = nums[smallest];
-				nums[smallest] = temp;
+				nums[j] = nums[largest];
+				nums[largest] = temp;
 				swaps += 3;
 			}
 		}
@@ -63,7 +61,7 @@ public class PracticeProblem {
 			double key = nums[i];
 			int index = i - 1;
 
-			while(index >= 0 && nums[index] > key) {
+			while(index >= 0 && nums[index] < key) {
 				steps++;
 				nums[index + 1] = nums[index];
 				swaps += 1;
@@ -73,7 +71,7 @@ public class PracticeProblem {
 				steps++;
 			}
 			nums[index + 1] = key;
-			swaps += 1; // Always count the final placement
+			swaps += 1;
 		}
 		return new int[]{swaps, steps};
 	}
